@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='/socket.io/socket.io.js'></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bienvenido  <%=userName%> </h1>
+    
+    <form onsubmit="return enviarProducto()">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" placeholder="nombre del producto">
+
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" placeholder="precio">
+
+        <label for="thumbnail">url de imagen:</label>
+        <input type="text" name="thumbnail" id="thumbnail" placeholder="imagen del producto">
+
+        <button type="submit" >crear producto</button>
+    </form>
+
+    <div id="main-container">
+        <table>
+            <thead>
+                <tr>
+                <th >#</th>
+                <th >Title</th>
+                <th >Price</th>
+                <th >Imagen</th>
+                </tr>
+            </thead>
+            <!-- <tbody >
+                <%# list.map(prod => { %>    
+                    <tr>
+                        <td> <%#=prod.id %> </td>
+                        <td> <%#=prod.title %> </td>
+                        <td> <%#=prod.price %> </td>
+                        <td><img src="<%#=prod.img %>" alt="<%#=prod.title %>" width="25"></td>
+                    </tr>
+                <%#}) %> 
+            </tbody> -->
+        </table>
+    </div>
+
+    <form onsubmit="return enviarMensaje()">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name" placeholder="nombre">
+
+        <label for="lastname">Apellido</label>
+        <input type="text" name="lastname" id="lastname" placeholder="Apellido">
+
+        <label for="age">Edad</label>
+        <input type="number" name="age" id="age" placeholder="edad">
+
+        <label for="alias">Alias</label>
+        <input type="text" name="alias" id="alias" placeholder="alias">
+
+        <label for="avatar">Avatar</label>
+        <input type="text" name="avatar" id="avatar" placeholder="avatar">
+
+        <label for="message">Mensaje</label>
+        <input type="text" name="message" id="message" placeholder="ingresar mensaje">
+
+        <button type="submit">Enviar Mensaje</button>
+    </form>
+
+
+
+    <a  class= "css-button-sliding-to-top--red" href="/logout">Logout</a> 
+</body>
+</html>
