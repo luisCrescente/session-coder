@@ -33,7 +33,7 @@ socket.on('productos',(products)=> agregarProductos(products));
 
 
 const enviarMensaje = (e) =>{
-    const email = document.getElementById('author').value;
+    const email = document.getElementById('email').value;
     const text = document.getElementById('text').value;
     const time = new Date();
     

@@ -7,7 +7,6 @@ import MongoDbContenedor from './contenedor/contenedor.js';
 import { Server as HttpServer } from 'http';
 import { Server as SocketServer } from 'socket.io';
 
-
 const PORT = 8080;
 
 const app = express()
@@ -47,8 +46,6 @@ app.use(session({
     }
 }))
 
-
-
 app.get('/productos-test', (req,res)=> {
         const list = fkr();
         console.log(list);
@@ -85,7 +82,7 @@ app.get('/logout', (req,res)=> {
     })
 });
 const httpServer = new HttpServer(app);
- const socketServer = new SocketServer(httpServer);
+const socketServer = new SocketServer(httpServer);
 
 socketServer.on('connection', async (socket) => {
     socket.emit('products', await products.getAll());
