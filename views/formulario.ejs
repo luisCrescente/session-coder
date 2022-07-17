@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src='/socket.io/socket.io.js'></script>
     <link rel="stylesheet" href="./style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./main.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
         <input type="number" name="price" id="price" placeholder="precio">
 
         <label for="thumbnail">url de imagen:</label>
-        <input type="text" name="thumbnail" id="thumbnail" placeholder="imagen del producto">
+        <input type="text" name="thumbnail" id="thumbnail" placeholder="ej. https://picsum.photos/200">
 
         <button type="submit" >crear producto</button>
     </form>
@@ -28,48 +29,38 @@
         <table>
             <thead>
                 <tr>
-                <th >#</th>
                 <th >Title</th>
                 <th >Price</th>
                 <th >Imagen</th>
                 </tr>
             </thead>
-            <!-- <tbody >
-                <%# list.map(prod => { %>    
+            <tbody id='productsTable' >
+                <% prods.map(prod => { %>    
                     <tr>
-                        <td> <%#=prod.id %> </td>
-                        <td> <%#=prod.title %> </td>
-                        <td> <%#=prod.price %> </td>
-                        <td><img src="<%#=prod.img %>" alt="<%#=prod.title %>" width="25"></td>
+                        <td> <%=prod.title %> </td>
+                        <td> <%=prod.price %> </td>
+                        <td><img src="<%=prod.thumbnail %>" alt="<%=prod.title %>" width="25"></td>
                     </tr>
-                <%#}) %> 
-            </tbody> -->
+                <%}) %> 
+            </tbody> 
         </table>
     </div>
 
     <form onsubmit="return enviarMensaje()">
-        <label for="name">Nombre</label>
-        <input type="text" name="name" id="name" placeholder="nombre">
 
-        <label for="lastname">Apellido</label>
-        <input type="text" name="lastname" id="lastname" placeholder="Apellido">
+        <label for="author">Email</label>
+        <input type="email" name="author" id="author" placeholder="ej test@gmail.com">
 
-        <label for="age">Edad</label>
-        <input type="number" name="age" id="age" placeholder="edad">
-
-        <label for="alias">Alias</label>
-        <input type="text" name="alias" id="alias" placeholder="alias">
-
-        <label for="avatar">Avatar</label>
-        <input type="text" name="avatar" id="avatar" placeholder="avatar">
-
-        <label for="message">Mensaje</label>
-        <input type="text" name="message" id="message" placeholder="ingresar mensaje">
+        <label for="text">Mensaje</label>
+        <input type="text" name="text" id="text" placeholder="ingresar mensaje">
 
         <button type="submit">Enviar Mensaje</button>
     </form>
 
-
+    <!-- <div id="messagesTable">
+    
+    </div> -->
+    <br><br> 
 
     <a  class= "css-button-sliding-to-top--red" href="/logout">Logout</a> 
 </body>
