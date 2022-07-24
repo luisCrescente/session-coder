@@ -88,11 +88,12 @@ socketServer.on('connection', async (socket) => {
     socket.emit('products', await products.getAll());
     socket.emit('messages', await messages.getAll());
 
-    socket.on('new_message', async (messages) =>{
+    socket.on('new_message', async (message) =>{
         try{
-            await messages.save(mesage);
+            console.log(message);
+            await messages.save(message);
             let msgs = await messages.getAll();
-            socketServer.sockets.emit.getAll('messages', msgs);
+            socketServer.sockets.emit('messages', msgs);
         }catch(error){
             console.log(error);
         }

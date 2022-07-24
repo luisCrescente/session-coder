@@ -58,7 +58,13 @@
     </form>
 
     <div id="messagesTable">
-    
+        <% msgs.map(msg => { %>    
+            
+            <p><%=msg.email %></p>
+            <p><%=msg.time %></p>
+            <p><%=msg.text %></p>
+
+            <%}) %> 
     </div> 
     <br><br> 
 
